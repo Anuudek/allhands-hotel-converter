@@ -85,7 +85,7 @@ namespace ConsoleApplication
                 Console.WriteLine("👉 We can disable all the sellable setting in the JSON,");
                 Console.WriteLine("if this is disabled all clothes will be visible if not then only clothes that are not sellable 👈");
                 Console.WriteLine("❓ Do you want to disable all sellable? (Y/N): ");
-                string answer = Console.ReadLine();
+                string answer = Console.ReadLine() ?? "Y";
                 bool disableSellable = answer.Trim().ToUpper() == "Y";
 
                 string currentDirectory = Environment.CurrentDirectory;

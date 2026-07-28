@@ -53,6 +53,16 @@ namespace ConsoleApplication
                 Console.ResetColor();
             }
 
+            if (Array.Exists(argv, a => string.Equals(a, "--auto-download-all", StringComparison.OrdinalIgnoreCase)))
+            {
+                return AutoDownloadAll.RunAsync().GetAwaiter().GetResult();
+            }
+
+            if (Array.Exists(argv, a => string.Equals(a, "--auto-convert-all", StringComparison.OrdinalIgnoreCase)))
+            {
+                return AutoConvertAll.RunAsync().GetAwaiter().GetResult();
+            }
+
             // Decide the initial UI mode: Explorer launch -> GUI direct,
             // terminal -> ModeSelector with TUI/CLI only.
             if (!args.ModeExplicitlySet && string.IsNullOrEmpty(args.Command))
